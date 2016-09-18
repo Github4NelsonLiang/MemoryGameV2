@@ -5,6 +5,7 @@ import android.media.Image;
 import android.os.AsyncTask;
 import android.os.HandlerThread;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
@@ -70,10 +71,6 @@ public class ImageAdapter extends BaseAdapter{
     public long getItemId(int pos){ return pieces[pos].longValue();}
 
     public synchronized View getView(int pos, View view, ViewGroup parent){
-       /** View v;
-        v=view;
-        TextView t = (TextView) v.findViewById(R.id.textView3);
-        t.setText("Points "+ getPoints());**/
         return (ImageView) imageview.get(pos);
     }
 
@@ -154,4 +151,5 @@ public void show(int pos){
 
 
     };
+
 }
