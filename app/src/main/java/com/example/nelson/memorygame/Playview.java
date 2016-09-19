@@ -22,7 +22,10 @@ public class Playview extends Activity {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
         ImageAdapter p = new ImageAdapter(this);
+
+        //((TextView) findViewById(R.id.textView3 )).setText("Points  "+ p.printscore() );
     }
+
     public void onBackPressed() {
        Intent intent = new Intent(this,MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -1,8 +1,11 @@
 package com.example.nelson.memorygame;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.media.Image;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -32,7 +36,8 @@ public class ImageAdapter extends BaseAdapter{
     private List imageview;
     private Integer [] pieces;
     private int piece_front=-1;
-    int points =0;
+    int points ;
+
 
     public ImageAdapter(Context c){
         mcontext=c;
@@ -62,7 +67,7 @@ public class ImageAdapter extends BaseAdapter{
     }
 
 
-    public int getCount(){return 20;}
+    public int getCount(){return mThumbIds.length*2;}
 
     public Object getItem(int pos){
         return imageview.get(pos);
@@ -82,7 +87,7 @@ public class ImageAdapter extends BaseAdapter{
     public void installclick(int pos){
       final ImageAdapter self = this;
         Log.d("ImageAdapter", "click *" + Integer.toString(pos));
-        ImageView imageView= (ImageView) imageview.get(pos);
+        final ImageView imageView= (ImageView) imageview.get(pos);
       imageView.setOnClickListener(new View.OnClickListener() {
 
           public void onClick(View v) {
@@ -113,10 +118,14 @@ public class ImageAdapter extends BaseAdapter{
       });
   }
 
-    public  int getPoints(){
+   public int Game_Point(int pts) {
+       points=pts+points;
+       return points;
+   }
+
+    public int printscore(){
         return points;
     }
-
 
 public void remove(int pos){
     ImageView remove;

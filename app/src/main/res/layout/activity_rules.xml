@@ -10,13 +10,14 @@
     tools:context="com.example.nelson.memorygame.rules">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Click play to start!"
-        android:id="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Click play to start!"
+    android:id="@+id/textView2"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentBottom="true" />
+
 
 </RelativeLayout>
