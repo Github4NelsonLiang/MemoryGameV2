@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Field;
@@ -92,12 +95,25 @@ public class ImageAdapter extends BaseAdapter{
 
           public void onClick(View v) {
               int pos = imageview.indexOf((ImageView) v);
+              YoYo.with(Techniques.BounceInUp)
+                      .duration(1000)
+                      .playOn(imageView);
               show(pos);
               if (piece_front == -1 || piece_front == pos){
                   piece_front = pos;
               }
               else {
                   if (pieces[pos] == pieces[piece_front]) {
+                      ImageView image1 = (ImageView) imageview.get(pos);
+                      ImageView image2 = (ImageView) imageview.get(piece_front);
+                      YoYo.with(Techniques.RotateIn)
+                              .duration(1000)
+                              .playOn(image1);
+
+                      YoYo.with(Techniques.RotateIn)
+                              .duration(1000)
+                              .playOn(image2);
+
                       points++;
                       Toast.makeText(mcontext, String.valueOf(points),Toast.LENGTH_LONG).show();
                       remove(pos);
@@ -106,7 +122,12 @@ public class ImageAdapter extends BaseAdapter{
                       int remove[] = {piece_front, pos};
                       Sleep update = new Sleep(mcontext, self, remove);
                       android.os.Handler handle = new android.os.Handler();
-                      handle.postDelayed(update, 200);
+                      ImageView image3 = (ImageView) imageview.get(pos);
+                      YoYo.with(Techniques.BounceInUp)
+                              .duration(1000)
+                              .playOn(image3);
+
+                      handle.postDelayed(update, 800);
 
                   }
                   piece_front=-1;

@@ -23,7 +23,7 @@ public class Playview extends Activity {
         gridview.setAdapter(new ImageAdapter(this));
         ImageAdapter p = new ImageAdapter(this);
 
-        //((TextView) findViewById(R.id.textView3 )).setText("Points  "+ p.printscore() );
+       // ((TextView) findViewById(R.id.)).setText("Points  "+ p.printscore() );
     }
 
     public void onBackPressed() {
