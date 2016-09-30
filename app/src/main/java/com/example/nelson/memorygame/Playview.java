@@ -9,12 +9,19 @@ import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageSwitcher;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class Playview extends Activity {
-    @Override
+
+    @BindView(R.id.restart)
+    Button restart;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playview);
@@ -22,6 +29,15 @@ public class Playview extends Activity {
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
         ImageAdapter p = new ImageAdapter(this);
+        ButterKnife.bind(this);
+        restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
 
        // ((TextView) findViewById(R.id.)).setText("Points  "+ p.printscore() );
     }
@@ -32,5 +48,7 @@ public class Playview extends Activity {
         startActivity(intent);
         Log.i("Backpressed","Yes");
     }
+
+
 
 }
