@@ -20,6 +20,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by nelson on 9/29/16.
  */
@@ -28,7 +31,7 @@ public class Rule_Fragment extends DialogFragment {
         return new Rule_Fragment();
     }**/
 
-
+   @BindView(R.id.xbutton) Button xbutton;
 
     public Rule_Fragment() {}
 
@@ -36,8 +39,8 @@ public class Rule_Fragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.activity_rules, container, false);
-        b=(Button) view.findViewById(R.id.xbutton);
-        b.setOnClickListener(new View.OnClickListener() {
+        ButterKnife.bind(this,view);
+        xbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getDialog().dismiss();
@@ -70,6 +73,6 @@ public class Rule_Fragment extends DialogFragment {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL,R.style.DIALOG);
     }
-        private Button b;
+
 
 }

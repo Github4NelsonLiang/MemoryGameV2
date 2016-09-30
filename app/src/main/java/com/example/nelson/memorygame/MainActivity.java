@@ -10,13 +10,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    @BindView(R.id.button2) Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.button2).setOnClickListener(this);
+        ButterKnife.bind(this);
+        button2.setOnClickListener(this);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.nelson.memorygame;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Handler;
 
+import butterknife.BindDrawable;
+import butterknife.BindView;
+
 /**
  * Created by nelson on 9/16/16.
  */
@@ -40,7 +44,6 @@ public class ImageAdapter extends BaseAdapter{
     private Integer [] pieces;
     private int piece_front=-1;
     int points ;
-
 
     public ImageAdapter(Context c){
         mcontext=c;
